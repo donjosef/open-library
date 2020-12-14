@@ -1,0 +1,16 @@
+.library-page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.library-page__sort {
+    border: 2px solid white;
+    background: transparent;
+    outline: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}

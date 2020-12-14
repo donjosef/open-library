@@ -1,0 +1,21 @@
+.books {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.book {
+    border-top: 1px solid #2e2f33;
+    border-bottom: 1px solid #2e2f33;
+    margin-bottom: 15px;
+    padding: 0px 0 10px 10px;
+}
+
+@media (max-width: 630px) {
+    .books {
+        grid-template-columns: 1fr;
+    }
+}
