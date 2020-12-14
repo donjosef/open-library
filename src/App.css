@@ -18,7 +18,7 @@ body {
   padding: 10px 0;
 }
 
-.navigation-pages button {
+.navigation-pages a {
   margin: 0 15px;
   background: transparent;
   color: rgba(255, 255, 255, 0.7);
@@ -27,9 +27,10 @@ body {
   text-transform: uppercase;
   font-size: 0.9em;
   outline: none;
+  text-decoration: none;
 }
 
-.navigation-pages button.active {
+.navigation-pages a.active {
   color: rgba(255, 255, 255, 1);
   font-size: 1.2em;
 }

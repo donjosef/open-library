@@ -2,24 +2,21 @@ import React, { useState } from 'react'
 import {LibraryProvider} from './contexts/libraryContext'
 import LibraryPage from './pages/LibraryPage/LibraryPage'
 import ExplorePage from './pages/ExplorePage/ExplorePage'
+import {NavLink, Route, Redirect} from 'react-router-dom'
 import './App.css';
 
 function App() {
-  const [page, setPage] = useState('search')
 
   return (
     <div>
       <nav className="navigation-pages">
-        <button
-          className={page === 'library' ? 'active' : null}
-          onClick={() => setPage('library')}>Library</button>
-        <button
-          className={page === 'search' ? 'active' : null}
-          onClick={() => setPage('search')}>Search</button>
+        <NavLink to="/library">Library</NavLink>
+        <NavLink to="/explore">Explore</NavLink>
       </nav>
       <LibraryProvider>
-        {page === 'search' ? <ExplorePage /> : null}
-        {page === 'library' ? <LibraryPage /> : null}
+        <Route path="/explore" component={ExplorePage} />
+        <Route path="/library" component={LibraryPage} />
+        <Redirect to="/explore" />
       </LibraryProvider>
     </div>
   )
