@@ -1,0 +1,23 @@
+.search-bar__form {
+    margin: auto;
+    width: 300px;
+    max-width: 90%;
+    display: flex;
+    position: relative;
+}
+
+.search-bar__input {
+    flex-grow: 1;
+    padding: 8px;
+    font-size: 1em;
+    background: #2e2f33;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: white;
+    caret-color: orange;
+    z-index: 2;
+    &:focus {
+        border: 1px solid orange;
+    }
+}
