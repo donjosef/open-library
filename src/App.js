@@ -2,24 +2,20 @@ import React, { useState } from 'react'
 import {LibraryProvider} from './contexts/libraryContext'
 import LibraryPage from './pages/LibraryPage/LibraryPage'
 import ExplorePage from './pages/ExplorePage/ExplorePage'
-import {NavLink, Route, Redirect} from 'react-router-dom'
+import FullBook from './components/FullBook/FullBook'
+import Navigation from './components/Navigation/Navigation'
+import {Route, Redirect} from 'react-router-dom'
 import './App.css';
 
 function App() {
 
   return (
     <div className="app">
-      <nav className="navigation">
-        <div className="navigation__logo"></div>
-        <div className="navigation__links">
-          <NavLink to="/explore">Explore</NavLink>
-          <NavLink to="/categories">Categories</NavLink>
-          <NavLink to="/library">Library</NavLink>
-        </div>
-      </nav>
+      <Navigation />
       <LibraryProvider>
         <Route path="/explore" component={ExplorePage} />
         <Route path="/library" component={LibraryPage} />
+        <Route path="/fullbook/:isbn" component={FullBook} /> 
         <Redirect to="/explore" />
       </LibraryProvider>
     </div>
