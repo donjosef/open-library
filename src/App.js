@@ -8,10 +8,14 @@ import './App.css';
 function App() {
 
   return (
-    <div>
-      <nav className="navigation-pages">
-        <NavLink to="/library">Library</NavLink>
-        <NavLink to="/explore">Explore</NavLink>
+    <div className="app">
+      <nav className="navigation">
+        <div className="navigation__logo"></div>
+        <div className="navigation__links">
+          <NavLink to="/explore">Explore</NavLink>
+          <NavLink to="/categories">Categories</NavLink>
+          <NavLink to="/library">Library</NavLink>
+        </div>
       </nav>
       <LibraryProvider>
         <Route path="/explore" component={ExplorePage} />
