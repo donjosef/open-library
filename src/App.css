@@ -5,45 +5,12 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background: white;
-  color: white;
+  margin: 0;
 }
 
 .app {
   width: 960px;
+  max-width: 95%;
   margin: auto;
-  text-align: center;
 }
 
-.navigation {
-  display: flex;
-  background: white;
-  padding: 50px 0;
-}
-
-.navigation__logo {
-  background: url("images/method-draw-image.svg") no-repeat center /contain;
-  height: 60px;
-  width: 200px;
-  margin-right: 20px;
-}
-
-.navigation__links {
-  display: flex;
-  align-items: center;
-}
-
-.navigation__links a {
-  margin: 0 15px;
-  background: transparent;
-  color: #1D1E22;
-  border: none;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  outline: none;
-  text-decoration: none;
-}
-
-.navigation__links a.active {
-  text-decoration: underline;
-}
