@@ -1,7 +1,5 @@
 .search-bar__form {
-    margin: auto;
     width: 300px;
-    max-width: 90%;
     display: flex;
     position: relative;
 }
