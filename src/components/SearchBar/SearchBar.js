@@ -52,9 +52,15 @@ function SearchBar(props) {
 
                     WHY am i using a ref instead of bookValue of state? 
                     Because when getBooks gets invoked it has a closure(that's important!) to the current (old) bookValue
+
+                    WHY am i checking bookValueRef.length?
+                    Because when i delete the input bar, one of the old fetch could resolve repopolating the searchResults
                     */
                     const regEx = new RegExp(bookValueRef.current, 'i')
-                    if(data.docs.some(doc => regEx.test(doc.title) || regEx.test(doc.author_name) )) {
+                    if(
+                        data.docs.some(doc => regEx.test(doc.title) || regEx.test(doc.author_name) ) &&
+                        bookValueRef.current.length > 1
+                    ) {
                         const books = data.docs
                             .filter(doc => doc.isbn || doc.lccn) //filter out doc without isbn or lccn. Will be important when user select a book from searchResults. In fact, if user would select a book without an isbn or lccn the response of handleSelectBook will be an empty object
                             .map(({ title, publisher, publish_year, author_name, key, isbn, lccn }) => {
