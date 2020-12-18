@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-
+import ImageSlider from '../../components/ImageSlider/ImageSlider'
 import './ExplorePage.css'
 
 function ExplorePage(props) {
@@ -38,50 +36,13 @@ function ExplorePage(props) {
             })
     }
 
-    const settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3
-    }
-
     const [firstCategory, secondCategory, thirdCategory] = Object.keys(categories)
-    let src = 'https://covers.openlibrary.org/b/id/'
 
     return (
         <div className="explore-page">
-            <div className="explore-page__slider">
-                <h2>{firstCategory}</h2> 
-                <Slider {...settings}>
-                    {categories[firstCategory] && categories[firstCategory].map(book => (
-                    <div key={book.cover_id}>
-                        <img src={src + `${book.cover_id}-M.jpg`} alt={book.title}/>
-                    </div>  
-                    ))}
-                </Slider>
-            </div>
-
-            <div className="explore-page__slider">
-                <h2>{secondCategory}</h2>
-                <Slider {...settings}>
-                    {categories[secondCategory] && categories[secondCategory].map(book => (
-                    <div key={book.cover_id}>
-                        <img src={src + `${book.cover_id}-M.jpg`} alt={book.title}/>
-                    </div>  
-                    ))}
-                </Slider>
-            </div>
-
-            <div className="explore-page__slider">
-                <h2>{thirdCategory}</h2>
-                <Slider {...settings}>
-                    {categories[thirdCategory] && categories[thirdCategory].map(book => (
-                    <div key={book.cover_id}>
-                        <img src={src + `${book.cover_id}-M.jpg`} alt={book.title}/>
-                    </div>  
-                    ))}
-                </Slider>
-            </div>
+            <ImageSlider category={firstCategory} categories={categories[firstCategory]} />
+            <ImageSlider category={secondCategory} categories={categories[secondCategory]} />
+            <ImageSlider category={thirdCategory} categories={categories[thirdCategory]} />
         </div>
     )
 }
