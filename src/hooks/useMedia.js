@@ -14,11 +14,11 @@ export const useMedia = () => {
             setMedia('desktop')
         }
 
-        if(width > 450 && width < 760) {
+        if(width > 451 && width < 760) {
             setMedia('tablet')
         }
 
-        if(width < 450) {
+        if(width <= 450) {
             setMedia('mobile')
         }
     }
