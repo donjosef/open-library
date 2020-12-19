@@ -21,8 +21,22 @@
     right: 0;
 }
 
+.slick-active {
+    animation: fade .5s ease-in;
+}
+
 .slider__item {
     height: 450px;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @media (max-width: 960px) and (min-width: 760px) {
