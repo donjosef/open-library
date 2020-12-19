@@ -10,6 +10,7 @@
     border: none;
     font-size: 2em;
     color: #1D1E22;
+    cursor: pointer;
 }
 
 .slick-prev {
