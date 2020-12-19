@@ -26,11 +26,11 @@ function ExplorePage(props) {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                const works = data.works
+                const works = data.works.filter(work => work.cover_id)
                 setCategories(prevCategories => {
                     return {
                         ...prevCategories,
-                        [data.name]: works
+                        [data.name]: works //will be {category1: [], category2: [], category3: []}
                     }
                 })
             })
