@@ -29,7 +29,7 @@ function ImageSlider({ category, categories }) {
     const media = useMedia()
 
     const settings = {
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: media === 'desktop' ? 3 : media === 'tablet' ? 2 : media === 'mobile' ? 1 : null,
         slidesToScroll: media === 'desktop' ? 3 : media === 'tablet' ? 2 : media === 'mobile' ? 1 : null,
