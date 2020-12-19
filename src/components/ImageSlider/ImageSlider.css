@@ -1,0 +1,37 @@
+.explore-page__slider:not(:first-child) {
+    margin-top: 100px;
+    position: relative;
+}
+
+.slick-arrow {
+    position: absolute !important;
+    top: 100%; /*position under the slider*/
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    color: #1D1E22;
+}
+
+.slick-prev {
+    left: 0;
+}
+
+.slick-next {
+    right: 0;
+}
+
+.slider__item {
+    height: 450px;
+}
+
+@media (max-width: 960px) and (min-width: 760px) {
+    .slider__item {
+        height: 370px; /*otherwise images will be too stretched in height*/
+    }
+}
+
+@media (max-width: 599px) and (min-width: 451px) {
+    .slider__item {
+        height: 300px; /*otherwise images will be too stretched in height*/
+    }
+}
