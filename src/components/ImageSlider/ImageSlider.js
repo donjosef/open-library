@@ -6,6 +6,15 @@ import './ImageSlider.css'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 
+function setSlides(media) {
+    return (
+        media === 'desktop' ? 3 : 
+        media === 'tablet' ? 2 : 
+        media === 'mobile' ? 1 :
+        null
+    )
+}
+
 function NextArrow(props) {
     const { className, onClick } = props
     return (
@@ -31,8 +40,8 @@ function ImageSlider({ category, categories }) {
     const settings = {
         infinite: false,
         speed: 500,
-        slidesToShow: media === 'desktop' ? 3 : media === 'tablet' ? 2 : media === 'mobile' ? 1 : null,
-        slidesToScroll: media === 'desktop' ? 3 : media === 'tablet' ? 2 : media === 'mobile' ? 1 : null,
+        slidesToShow: setSlides(media),
+        slidesToScroll: setSlides(media),
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     }
