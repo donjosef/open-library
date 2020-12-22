@@ -25,28 +25,46 @@
     animation: fade .5s ease-in;
 }
 
-.slider__item {
+.slider__item, 
+.slider__item--fake {
     height: 450px;
+}
+
+/* --fake slides animation-- */
+.slider__item--fake {
+    background: linear-gradient(to right, #d8d8d8, #f2f2f2);
+    background-size: 200%;
+    animation: gradient 1s ease-out infinite;
+}
+
+@keyframes gradient {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
 }
 
 @keyframes fade {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
 }
 
 @media (max-width: 960px) and (min-width: 760px) {
-    .slider__item {
-        height: 370px; /*otherwise images will be too stretched in height*/
+    .slider__item, .slider__item--fake {
+        height: 370px;
+        /*otherwise images will be too stretched in height*/
     }
 }
 
 @media (max-width: 599px) and (min-width: 451px) {
-    .slider__item {
-        height: 300px; /*otherwise images will be too stretched in height*/
+    .slider__item, .slider__item--fake {
+        height: 300px;
+        /*otherwise images will be too stretched in height*/
     }
 }
