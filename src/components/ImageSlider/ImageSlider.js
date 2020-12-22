@@ -1,18 +1,26 @@
 import React from 'react'
-import { useMedia } from '../../hooks/useMedia'
+import Slider from "react-slick"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { useMedia } from '../../hooks/useMedia'
 import './ImageSlider.css'
-import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 
-function setSlides(media) {
+function setSlides(media) { //how many slides will be visible based on screen
     return (
-        media === 'desktop' ? 3 : 
-        media === 'tablet' ? 2 : 
+        media === 'desktop' ? 3 :
+        media === 'tablet' ? 2 :
         media === 'mobile' ? 1 :
-        null
+        0
     )
+}
+
+function buildFakeSlides(slides) {
+    return Array.from(Array(slides), (el, i) => (
+        <div
+            className="slider__item--fake"
+            key={i}></div>
+    ))
 }
 
 function NextArrow(props) {
@@ -34,7 +42,7 @@ function PrevArrow(props) {
     )
 }
 
-function ImageSlider({ category, categories }) {
+const ImageSlider = React.memo(({ category, categories, loading }) => {
     const media = useMedia()
 
     const settings = {
@@ -50,19 +58,27 @@ function ImageSlider({ category, categories }) {
 
     return (
         <div className="explore-page__slider">
-            <h2>{category}</h2>
-            <Slider {...settings}>
-                {categories && categories.map(book => (
-                    <img
-                        className="slider__item"
-                        key={book.cover_id}
-                        src={src + `${book.cover_id}-M.jpg`}
-                        alt={book.title}
-                    />
-                ))}
-            </Slider>
+            {loading ? (
+                <Slider {...settings}>
+                    {buildFakeSlides(setSlides(media))}
+                </Slider>
+            ) : (
+                    <>
+                        <h2>{category}</h2>
+                        <Slider {...settings}>
+                            {categories.map(book => (
+                                <img
+                                    className="slider__item"
+                                    key={book.cover_id}
+                                    src={src + `${book.cover_id}-M.jpg`}
+                                    alt={book.title}
+                                />
+                            ))}
+                        </Slider>
+                    </>
+                )}
         </div>
     )
-}
+})
 
 export default ImageSlider
